@@ -1,0 +1,9 @@
+.AddStockButtons{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    height: 150px;
+    width: 75%;
+    padding-left: 140px;
+}

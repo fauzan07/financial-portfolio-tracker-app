@@ -1,0 +1,28 @@
+.FormInput{
+    padding:10px
+}
+
+.Lable{
+   float: left;
+   padding-left: 50px;
+}
+
+.cname{
+    font-size: 25px;
+}
+
+
+input{
+    width: 40%;
+    padding: 6px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+
+  .AddButton{
+    padding: 5px 20px;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }

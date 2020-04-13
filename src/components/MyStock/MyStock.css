@@ -1,0 +1,62 @@
+.body{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 80%;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 140px;
+}
+
+.Header{
+    padding-top: 30px;
+}
+
+.MyStockTitle{
+font-size: x-large;
+float: left;
+padding-left: 140px;
+padding-bottom: 20px;
+}
+
+#MyStocksTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#MyStocksTable td, #MyStocksTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#MyStocksTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#MyStocksTable tr:hover {background-color: #ddd;}
+
+#MyStocksTable th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    background-color: #1d7aca;
+    color: #fff;
+}
+
+.StopTrackingbtn{
+    padding: 5px;
+    background-color: #f00;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.StopTrackingbtn:hover {
+    background-color: #ff2323;
+}
+
+
+#MyStocksTable td{
+    font-size: 14px;
+    text-align: left;
+    color: #000;
+}
