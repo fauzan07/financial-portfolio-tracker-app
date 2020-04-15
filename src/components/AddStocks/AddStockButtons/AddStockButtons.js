@@ -4,11 +4,7 @@ import './AddStockButtons.css';
 import AddStockButton from './AddStockButton/AddStockButton'
 
 class AddStockButtons extends Component {
-    state = {
-        allStocksData: {}
-    }
-
-
+   
     render() {
         let button = this.props.allStocks.map(stock => {
             return stock ? <AddStockButton 

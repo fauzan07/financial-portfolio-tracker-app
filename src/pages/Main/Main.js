@@ -29,11 +29,11 @@ class Main extends Component {
     componentDidMount() {
         Axios.get('https://financial-portfolio-trac-178fd.firebaseio.com/allStocks.json')
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 let allStocks = response.data;
                     Axios.get('https://financial-portfolio-trac-178fd.firebaseio.com/myStocks.json')
                     .then(response => {
-                        console.log(response);
+                        // console.log(response);
                     this.setState({
                         myStocks: response.data,
                         allStocks: allStocks
@@ -66,7 +66,6 @@ class Main extends Component {
             })
         }else{
             let selectedStock = {...this.state.selectedStock}
-            // console.log(selectedStock);
             selectedStock.closingPrice = this.BuyingPrice.current.value;
             selectedStock.numberOfShares = this.NoOfShares.current.value;
             selectedStock.date = this.BuyingDate.current.value;
@@ -75,9 +74,7 @@ class Main extends Component {
                 .then(response => {
                     // console.log(response);
                     let allStocks = {...this.state.allStocks};
-                    // console.log(allStocks);
                     let newAllStocks = [];
-                    // console.log(newAllStocks);
                     for(let value in allStocks){
                         if(allStocks[value].symbol !== this.state.selectedStock.symbol){
                             newAllStocks.push(allStocks[value]);
@@ -151,7 +148,6 @@ class Main extends Component {
     }
     
     render() {
-        let today = new Date();
         let modalContent = this.state.showModel ? 
 
         (
@@ -169,11 +165,6 @@ class Main extends Component {
         )
         :null;
 
-        let weekendwarning = (
-            today.getDay() === 0 || today.getDay() === 6 ?
-            <p>*Since today is a weekend, the currernt price refers to the last updated working day price.</p> :
-            null
-        )
 
         return (
             <div>
@@ -186,7 +177,6 @@ class Main extends Component {
                         null
                 }
                <Navbar title="Finance Portfolio Tracker" />
-               {weekendwarning}
                <MyStock myStocks = {this.state.myStocks} stopTracking = {this.stopTrackingHandler}/>
                <HorizontalLine />
                {

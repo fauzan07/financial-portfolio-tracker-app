@@ -1,47 +1,15 @@
 import React , {Component}from 'react';
 import './MyStock.css';
-import Axios from 'axios';
+import AlphaCall from './AlphaCall';
 
 
 class MyStock extends Component{
     state = {
-        myStocks: {}
+        myStocks: {},
+        isError : false
     }
 
-    componentDidMount() {
-        const api_key = '0XCP84NVEHMH0GIX';
-        let createrow =  
-        Object.keys(this.state.myStocks).map(row => {
-            let dataRow = this.state.myStocks[row];
-            console.log(row);
-            // createrow[dataRow.symbol] = {...dataRow};
-        Axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${dataRow.symbol}&outputsize=full&apikey=${api_key}`)
-        .then(response => {
-            console.log(response);
-            let currentprice = response.data['Time Series (Daily)'];
-            console.log(currentprice);
-            let profit = ((currentprice - dataRow.buyprice)*dataRow.numberOfShares); // profit and loss logic!
-            console.log(profit);
-            this.setState({
-                newcurrentprice: currentprice,
-                profit
-            })
-        })
-        .catch(error => {console.log(error)});
-
-        return(
-            <div>
-                 <MyStock newcurrentprice = {this.state.newcurrentprice} profit={this.state.profit}/> 
-            </div>        
-            )
-            
-      })
-      console.log(createrow);
-     }
-
-
    
-
      render(){
         let rows = 
         Object.keys(this.props.myStocks).map(row => {
@@ -52,18 +20,24 @@ class MyStock extends Component{
                             <td>{stockData.name}</td>
                             <td>{stockData.numberOfShares}</td>
                             <td>{stockData.closingPrice}</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <AlphaCall
+                              symbol={stockData.symbol}
+                              date={stockData.date}
+                              buyprice={stockData.closingPrice}
+                              numberOfShares={stockData.numberOfShares} />
                             <td><button className="StopTrackingbtn" onClick={() => this.props.stopTracking(stockData.symbol)}>Stop Tracking</button></td>
                         </tr>
                         )})
-                        // console.log(rows);
+    
         return (
-            <div className="MyStock">
+            <div className="MyStocks">
                 <div className="Header">
-                    <span className="MyStockTitle">My Stocks</span>
+                    <span className="MyStocksTitle">My Stocks</span>
                 </div>
                 <div className="body">
+                    {
+                        this.state.isError   ? 
+                        <p>There seems to be a server issue, please try agian later</p> :
                     <table id="MyStocksTable" className="MyStocksTable">
                         <thead>
                             <tr>
@@ -81,6 +55,7 @@ class MyStock extends Component{
                             {rows}
                         </tbody>
                     </table>
+                    }
                 </div>
                 
             </div>
