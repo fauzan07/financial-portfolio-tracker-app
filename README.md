@@ -1,6 +1,6 @@
 ﻿# **Project – Finance Portfolio Tracker**
  
- https://determined-tereshkova-32cebf.netlify.app/
+ https://financial-portfolio-tracker-app.netlify.app/
 
 ## Overview
 
