@@ -1,6 +1,6 @@
 .Navbar{
     height: 50px;
-    background-color: #1d7aca;
+    background-color: #068f6d;
     color: #fff;
     display: flex;
     align-items: center;
@@ -10,4 +10,11 @@
 .NavbarTitle{
     font-weight: bolder;
     font-size: larger;
+}
+
+@media only screen and (max-width:600px){
+    .Navbar{
+        width: 100%;
+    }
+    
 }

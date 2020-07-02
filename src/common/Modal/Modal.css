@@ -19,3 +19,13 @@ box-sizing: border-box;
 width: 70%;
 overflow-Y: scroll;
 }
+
+@media only screen and (max-width:600px){
+    
+    .modalbody{
+        height: 500px;
+        width: 80%;
+        overflow-Y: scroll;
+        }
+    
+}

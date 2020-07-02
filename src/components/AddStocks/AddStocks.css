@@ -4,3 +4,12 @@
     float: left;
     padding-left: 140px;
     }
+
+
+ @media only screen and (max-width: 600px) {
+    
+    .AddStocksTitle{
+        padding-left: 50px;
+        }    
+         
+}
